@@ -1,0 +1,42 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/6c50aae/
+Drank	plugin/thirsty.vim	/^command! Drank call thirsty#_drank()$/;"	c
+Notthirsty	plugin/thirsty.vim	/^command! Notthirsty call thirsty#_not_thirsty()$/;"	c
+g:loaded_thirsty	plugin/thirsty.vim	/^let g:loaded_thirsty = 1$/;"	v
+g:thirsty#file#last_drink_time	autoload/thirsty.vim	/^	let g:thirsty#file#last_drink_time = get(g:,$/;"	v
+g:thirsty#frequency	autoload/thirsty.vim	/^	let g:thirsty#frequency = get(g:, 'thirsty#frequency',$/;"	v
+g:thirsty#max_time	autoload/thirsty.vim	/^	let g:thirsty#max_time = str2nr(get(g:, 'thirsty#max_time')) >= get(g:,$/;"	v
+g:thirsty#message#drank	autoload/thirsty.vim	/^	let g:thirsty#message#drank = get(g:,$/;"	v
+g:thirsty#message#drink_anyway	autoload/thirsty.vim	/^	let g:thirsty#message#drink_anyway = get(g:,$/;"	v
+g:thirsty#message#not_thirsty	autoload/thirsty.vim	/^	let g:thirsty#message#not_thirsty = get(g:,$/;"	v
+g:thirsty#prompt	autoload/thirsty.vim	/^	let g:thirsty#prompt = get(g:, 'thirsty#prompt',$/;"	v
+g:thirsty#prompt_force	autoload/thirsty.vim	/^	let g:thirsty#prompt_force = get(g:, 'thirsty#prompt_force',$/;"	v
+g:thirsty_force_drink	autoload/thirsty.vim	/^	let g:thirsty_force_drink = 0$/;"	v
+g:thirsty_force_drink	autoload/thirsty.vim	/^	let g:thirsty_force_drink = 1$/;"	v
+g:thirsty_prompt_text	autoload/thirsty.vim	/^	let g:thirsty_prompt_text = ''$/;"	v
+g:thirsty_prompt_text	autoload/thirsty.vim	/^	let g:thirsty_prompt_text = g:thirsty#prompt$/;"	v
+g:thirsty_prompt_text	autoload/thirsty.vim	/^	let g:thirsty_prompt_text = g:thirsty#prompt_force$/;"	v
+g:thirsty_ran_init	autoload/thirsty.vim	/^	let g:thirsty_ran_init = 1$/;"	v
+g:thirsty_timer_check	autoload/thirsty.vim	/^	let g:thirsty_timer_check = timer_start((g:thirsty#frequency * 1000),$/;"	v
+g:thirsty_timer_max	autoload/thirsty.vim	/^		let g:thirsty_timer_max = timer_start((l:time_til_latest_drink *$/;"	v
+g:thirsty_timer_max	autoload/thirsty.vim	/^	let g:thirsty_timer_max = timer_start((g:thirsty#max_time * 1000),$/;"	v
+thirsty#_drank	autoload/thirsty.vim	/^function! thirsty#_drank() abort "{{{$/;"	f
+thirsty#_init	autoload/thirsty.vim	/^function! thirsty#_init() abort "{{{$/;"	f
+thirsty#_not_thirsty	autoload/thirsty.vim	/^function! thirsty#_not_thirsty() abort "{{{$/;"	f
+thirsty#_prompt_blank	autoload/thirsty.vim	/^function! thirsty#_prompt_blank() abort "{{{$/;"	f
+thirsty#_prompt_check	autoload/thirsty.vim	/^function! thirsty#_prompt_check(timer) abort "{{{$/;"	f
+thirsty#_prompt_force	autoload/thirsty.vim	/^function! thirsty#_prompt_force(timer) abort "{{{$/;"	f
+thirsty#_read_file	autoload/thirsty.vim	/^function! thirsty#_read_file() abort "{{{$/;"	f
+thirsty#_timer_check	autoload/thirsty.vim	/^function! thirsty#_timer_check() abort "{{{$/;"	f
+thirsty#_timer_max	autoload/thirsty.vim	/^function! thirsty#_timer_max() abort "{{{$/;"	f
+thirsty#_write_file	autoload/thirsty.vim	/^function! thirsty#_write_file() abort "{{{$/;"	f
+thirsty#run	autoload/thirsty.vim	/^function! thirsty#run() abort "{{{$/;"	f
+thirsty#statusline	autoload/thirsty.vim	/^function thirsty#statusline(...) abort "{{{$/;"	f
+thirsty.vim	README.md	/^# thirsty.vim$/;"	c

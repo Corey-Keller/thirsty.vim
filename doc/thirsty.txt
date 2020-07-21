@@ -1,0 +1,214 @@
+*thirsty.txt*	Show a message to remind you to drink water
+
+===========================================================================
+CONTENTS                                           *thirsty-contents*
+
+Introduction ............................. |thirsty-introduction|
+Usage .................................... |thirsty-usage|
+Variables ................................ |thirsty-variables|
+License .................................. |thirsty-license|
+
+===========================================================================
+Introduction                    *thirsty* *thirsty-introduction*
+
+Show invisible characters (tab, space, nbsp etc)
+
+===========================================================================
+Usage                                             *thirsty-usage*
+Easy
+
+===========================================================================
+Variables                                         *thirsty-variables*
+
+SHOW                                              |thirsty-var-show|
+	|g:thirsty#show#all|
+	|g:thirsty#show#all_force|
+	|g:thirsty#show#conceal|
+	|g:thirsty#show#eol|
+	|g:thirsty#show#extends|
+	|g:thirsty#show#indent|
+	|g:thirsty#show#nbsp|
+	|g:thirsty#show#precedes|
+	|g:thirsty#show#space|
+	|g:thirsty#show#tab|
+	|g:thirsty#show#trail|
+	|g:thirsty#show#trail_ins|
+
+LIST                                              |thirsty-var-list|
+	|g:thirsty#list#extend|
+	|g:thirsty#list#noextend|
+	|g:thirsty#list#override|
+
+MISC                                              |thirsty-var-misc|
+	|g:thirsty#extended_font|
+	|g:thirsty#indent_chars|
+
+DEBUG                                             |thirsty-var-debug|
+	|g:thirsty_list|
+	|g:thirsty_ran_init|
+	|g:thirsty_ran_wrapup|
+
+SHOW                                              *thirsty-var-show*
+The show variables are |boolean| values used to determine if particular
+|'listchars'| |options| will be visible if defined in the list |Dictionaries|.
+See |thirsty-var-list| for more information about the list variables.
+
+Use one (1) for true, and zero (0) for false. All effects listed under
+these variables applies only when the value is true.
+
+*g:thirsty#show#all*
+	Any unset listchars show variables (ones that have "For more info see
+	lcs-*" in their descriptions) will be set to 1. This way you only have
+	to specify the ones that you don't want to be visible as false.
+
+*g:thirsty#show#all_force*
+	All listchars show variables, regardless of current state, will be set
+	to one (1)
+
+*g:thirsty#show#conceal*
+	Will display "conceal" listchars. For more info see |lcs-conceal|
+
+*g:thirsty#show#eol*
+	Will display "eol" listchars. For more info see |lcs-eol|
+
+*g:thirsty#show#extends*
+	Will display "extends" listchars. For more info see |lcs-extends|
+
+*g:thirsty#show#indent*
+	If you use tabs for indentation, and want to display the indent mark,
+	this will place |g:thirsty#indent_chars| to display in place
+	of tabs.
+	Note: Has no effect if |g:thirsty#show#tab| is true
+
+*g:thirsty#show#nbsp*
+	Will display "nbsp" listchars. For more info see |lcs-nbsp|
+
+*g:thirsty#show#precedes*
+	Will display "precedes" listchars. For more info see |lcs-precedes|
+
+*g:thirsty#show#space*
+	Will display "space" listchars. For more info see |lcs-space|
+
+*g:thirsty#show#tab*
+	Will display "tab" listchars. For more info see |lcs-tab|
+
+*g:thirsty#show#trail*
+	Will display "trail" listchars. For more info see |lcs-trail|
+
+*g:thirsty#show#trail_ins*
+	Trailing spaces will be visible in insert mode (i.e. Every time you hit
+	the spacebar between words)
+
+LIST                                              *thirsty-var-list*
+The list variables are |Dictionaries| who's keys are limited to the |options|
+available to |'listchars'|, with the value being a |string| that will be
+displayed if the corrisponding show variable (|thirsty-var-show|) is
+set to one (1).  The variable that is used to populate the |'listchars'|
+option is determined by conditions laid out under each variable. The
+variable must contain one (1) or more of the |'listchars'| types as keys,
+with |string| values to do anything.
+
+*g:thirsty#list#extend*
+	Iff (if and only if) |g:thirsty#extended_font| exists and is
+	equal to one (1) this |Dictionary| will be used.
+
+	Default:
+	+=======+---------+------+----------+-------+-------+-------+
+	| Key   | extends | nbsp | precedes | space | tab   | trail |
+	+=======+---------+------+----------+-------+-------+-------+
+	| Value | '❯'     | '␣'  | '❮'      | '·'   | '«-»' | '□'   |
+	+=======+---------+------+----------+-------+-------+-------+
+
+*g:thirsty#list#noextend*
+	If |g:thirsty#extended_font| does not exist or is equal to
+	zero (0) this |Dictionary| will be used.
+
+	Default:
+	+=======+---------+------+----------+-------+-------+-------+
+	| Key   | extends | nbsp | precedes | space | tab   | trail |
+	+=======+---------+------+----------+-------+-------+-------+
+	| Value | '>'     | '+'  | '<'      | '`'   | '<->' | '~'   |
+	+=======+---------+------+----------+-------+-------+-------+
+
+*g:thirsty#list#override*
+	This |Dictionary| will be used (only if non-empty) instead of
+	|g:thirsty#list#extend| or |g:thirsty#list#noextend|
+
+	Default: {}
+
+MISC                                              *thirsty-var-misc*
+
+*g:thirsty#extended_font*
+	|boolean| value that determines if we use |g:thirsty#list#extend|
+	(if true) or |g:thirsty#list#noextend| (if false) to populate
+	|g:thirsty_list|
+
+	Default:
+	+---------------------------+-----------------+
+	| exists('g:extended_font') | Value           |
+	+===========================+=================+
+	| true                      | g:extended_font |
+	+---------------------------+-----------------+
+	| false                     | 0               |
+	+---------------------------+-----------------+
+
+*g:thirsty#indent_chars*
+	|string| containing the characters that will be used for |lcs-tab| if
+	|g:thirsty#show#tab| is false and |g:thirsty#show#indent|
+	is true.
+
+	Default:
+	+---------------------------------+--------+
+	| Condition                       | String |
+	+=================================+========+
+	| |g:thirsty#extended_font|  | '⁞ '   |
+	| exists and is equal to one (1)  |        |
+	+---------------------------------+--------+
+	| |g:thirsty#extended_font|  | '| '   |
+	| does not exist or is equal      |        |
+	| to zero (0)                     |        |
+	+---------------------------------+--------+
+
+DEBUG                                             *thirsty-var-debug*
+
+*g:thirsty_list*
+	This is an automatically populated variable, don't bother changing it
+	directly.
+
+	Default:
+	Note: The table is in order of precedence. The first condition to be
+	      true will set the variable.
+	+--------------------------------+--------------------------------+
+	| Condition                      | List                           |
+	+================================+================================+
+	| |g:thirsty#list#override| | |g:thirsty#list#override| |
+	| exists and is non empty        |                                |
+	+--------------------------------+--------------------------------+
+	| |g:thirsty#extended_font| | |g:thirsty#list#extend|   |
+	| exists and is equal to one (1) |                                |
+	+--------------------------------+--------------------------------+
+	| |g:thirsty#extended_font| | |g:thirsty#list#noextend| |
+	| does not exist or is equal     |                                |
+	| to zero (0)                    |                                |
+	+--------------------------------+--------------------------------+
+
+*g:thirsty_ran_init*
+	This variable is set when |thirsty#show()| is first called.
+	When unset (or manually set to 0 to force re-initialization)
+
+*g:thirsty_ran_wrapup*
+
+===========================================================================
+License                                             *thirsty-license*
+
+License: Mozilla Public License, Version 2.0
+
+Copyright (c) 2019 Corey Keller
+
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+===========================================================================
+vim:textwidth=80:norightleft:noexpandtab:ft=help
+
